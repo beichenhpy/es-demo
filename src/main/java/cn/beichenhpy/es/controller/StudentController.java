@@ -5,7 +5,7 @@ import cn.beichenhpy.es.entity.Result;
 import cn.beichenhpy.es.entity.Student;
 import cn.beichenhpy.es.repo.ESSaveRepo;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.elasticsearch.core.ElasticsearchTemplate;
+import org.springframework.data.elasticsearch.core.ElasticsearchRestTemplate;
 import org.springframework.data.elasticsearch.core.geo.GeoPoint;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -15,9 +15,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * @author A51398
+ * @author beichenhpy
  * @version 1.0
- * @description TODO
+ * @description TODO 测试控制层
  * @since 2021/1/6 10:29
  */
 @RestController
@@ -25,7 +25,7 @@ public class StudentController {
     @Autowired
     private ESSaveRepo esSaveRepo;
     @Autowired
-    private ElasticsearchTemplate elasticsearchTemplate;
+    private ElasticsearchRestTemplate elasticsearchRestTemplate;
     @GetMapping("/getAllIndex")
     public Result<?> getAllIndex(){
         return Result.ok(esSaveRepo.findAll());
